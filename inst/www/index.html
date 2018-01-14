@@ -14,12 +14,11 @@
 <body>
   <div id="output"></div>
   <script>
-    var req = ocpu.rpc("do.call", {
-      what : "hello",
-      args : {}
-    }, function(output){
-      $("#output").text(output);
-    });
+    var req = ocpu.rpc("hello", {
+      }, function(output){
+        $("#output").text(output);
+      }
+    );
 
     //if R returns an error, alert the error message
     req.fail(function(){

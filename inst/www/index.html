@@ -1,0 +1,30 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous"></script>
+
+  <script src = "http://cdn.opencpu.org/opencpu-0.5.js"></script>
+</head>
+
+<body>
+  <div id="output"></div>
+  <script>
+    var req = ocpu.rpc("do.call", {
+      what : "hello",
+      args : {}
+    }, function(output){
+      $("#output").text(output);
+    });
+
+    //if R returns an error, alert the error message
+    req.fail(function(){
+      alert("Server error: " + req.responseText);
+    });
+  </script>
+</body>
+</html>
